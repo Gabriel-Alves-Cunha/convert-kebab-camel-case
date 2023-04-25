@@ -1,6 +1,6 @@
 import { bench, describe } from "vitest";
 
-import { splitAtHiphenRegex } from "#src/kebabToCamel";
+import { splitAtHiphenRegex } from "@src/regexes";
 import { commonWords } from "./commonWords";
 
 describe("split benchmark", () => {

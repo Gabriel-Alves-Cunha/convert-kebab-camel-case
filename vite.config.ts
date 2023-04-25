@@ -7,7 +7,7 @@ const external = builtinModules
 	.map(mod => `node:${mod}`)
 	.concat(builtinModules, "esbuild", "electron", "vite", "vscode");
 
-const MINIFY = false;
+const MINIFY = true;
 
 export default defineConfig(() => {
 	return {
@@ -31,9 +31,9 @@ export default defineConfig(() => {
 					// entryFileNames: "extension.js", // This overrides the entry name.
 					minifyInternalExports: MINIFY,
 					entryFileNames: "[name].js",
-					chunkFileNames: "[name].js",
+					// chunkFileNames: "[name].js",
 					sourcemap: true,
-					format: "cjs",
+					format: "esm",
 					dir: "./out",
 				},
 			},
@@ -57,11 +57,10 @@ export default defineConfig(() => {
 			target: "esnext",
 			sourcemap: true,
 			charset: "utf8",
-			format: "cjs",
+			format: "esm",
 			logLimit: 10,
 			color: true,
 		},
-		root: ".",
 
 		test: {
 			logHeapUsage: true,
@@ -84,8 +83,8 @@ export default defineConfig(() => {
 
 		resolve: {
 			alias: [
-				{ find: "#tests", replacement: resolve("tests/") },
-				{ find: "#src", replacement: resolve("src/") },
+				{ find: "@tests", replacement: resolve("tests/") },
+				{ find: "@src", replacement: resolve("src/") },
 			],
 		},
 	} satisfies ReturnType<typeof defineConfig>;

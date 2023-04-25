@@ -1,10 +1,24 @@
 // The module 'vscode' contains the VS Code extensibility API
 import { type ExtensionContext, commands } from "vscode";
 
-import { camelToKebabCommand } from "./camelToKebab";
-import { kebakToCamelCommand } from "./kebabToCamel";
+import { replaceStringOnActiveEditor } from "./replaceStringOnActiveEditor";
+import { camelToKebab } from "./camelToKebab";
+import { kebabToCamel } from "./toCamelCase";
+import { toSnakeCase } from "./toSnakeCase";
 
 const myExtension = "convert-kebab-camel-case";
+
+function camelToKebabCommand(): void {
+	replaceStringOnActiveEditor(camelToKebab);
+}
+
+function kebakToCamelCommand(): void {
+	replaceStringOnActiveEditor(kebabToCamel);
+}
+
+export function toSnakeCaseCommand(): void {
+	replaceStringOnActiveEditor(toSnakeCase);
+}
 
 // This method is called when your extension is activated
 // Your extension is activated the very first time the command is executed
@@ -24,17 +38,17 @@ export function activate(context: ExtensionContext): void {
 	// 		}
 	const disposeCamelToKebabCommand = commands.registerCommand(
 		`${myExtension}.camelToKebab`,
-		camelToKebabCommand,
+		camelToKebabCommand
 	);
 
 	const disposeKebakToCamelCommand = commands.registerCommand(
 		`${myExtension}.kebabToCamel`,
-		kebakToCamelCommand,
+		kebakToCamelCommand
 	);
 
 	context.subscriptions.push(
 		disposeCamelToKebabCommand,
-		disposeKebakToCamelCommand,
+		disposeKebakToCamelCommand
 	);
 }
 
