@@ -39,4 +39,11 @@ describe("to snake case", () => {
 	it("test_edge_case_single_word", () => {
 		expect(toSnakeCase("hello")).toBe("hello");
 	});
+
+	it("test with string already at snake case", () => {
+		const input = "hello_world";
+		const expected = "hello_world";
+
+		expect(toSnakeCase(input)).toBe(expected);
+	});
 });

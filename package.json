@@ -1,28 +1,97 @@
 {
-	"name": "convert-kebab-camel-case",
-	"description": "Convert kebab to camel case string and vice-versa.",
+	"name": "string-converter",
+	"description": "Convert kebab to camel case string and",
 	"author": "Gabriel Alves Cunha <gabriel925486@outlook.com>",
-	"displayName": "convert-kebab-camel-case",
+	"displayName": "String Converter",
 	"version": "0.0.1",
 	"type": "commonjs",
 	"license": "MIT",
 	"engines": {
 		"vscode": "^1.77.0"
 	},
-	"categories": [
-		"Other"
-	],
+	"categories": ["Other"],
 	"activationEvents": [],
 	"main": "./out/extension.js",
 	"contributes": {
 		"commands": [
 			{
-				"command": "convert-kebab-camel-case.camelToKebab",
-				"title": "Camel to kebab"
+				"command": "string-converter.toKebabCase",
+				"title": "Convert string to kebab case",
+				"when": "editorTextFocus",
+				"key": "alt+ctrl+K",
+				"mac": "alt+cmd+K"
 			},
 			{
-				"command": "convert-kebab-camel-case.kebabToCamel",
-				"title": "Kebab to camel"
+				"command": "string-converter.toCamelCase",
+				"title": "Convert string to camel case",
+				"when": "editorTextFocus",
+				"key": "alt+ctrl+C",
+				"mac": "alt+cmd+C"
+			},
+			{
+				"command": "string-converter.toPascalCase",
+				"title": "Convert string to pascal case",
+				"when": "editorTextFocus",
+				"key": "alt+ctrl+P",
+				"mac": "alt+cmd+P"
+			},
+			{
+				"command": "string-converter.toLowerCase",
+				"title": "Convert string to lower case",
+				"when": "editorTextFocus",
+				"key": "alt+ctrl+L",
+				"mac": "alt+cmd+L"
+			},
+			{
+				"command": "string-converter.toUpperCase",
+				"title": "Convert string to upper case",
+				"when": "editorTextFocus",
+				"key": "alt+ctrl+U",
+				"mac": "alt+cmd+U"
+			},
+			{
+				"command": "string-converter.toSnakeCase",
+				"title": "Convert string to snake case",
+				"when": "editorTextFocus",
+				"key": "alt+ctrl+S",
+				"mac": "alt+cmd+S"
+			}
+		],
+		"configuration": [
+			{
+				"title": "String Converter",
+				"properties": {
+					"string-converter.toKebabCase": {
+						"description": "Convert to kebab case",
+						"default": "alt+ctrl+k",
+						"type": "string"
+					},
+					"string-converter.toCamelCase": {
+						"description": "Convert to camel case",
+						"default": "alt+ctrl+c",
+						"type": "string"
+					},
+					"string-converter.toPascalCase": {
+						"description": "Convert to pascal case",
+						"default": "alt+ctrl+p",
+						"type": "string"
+					},
+					"string-converter.toLowerCase": {
+						"description": "Convert to lower case",
+						"default": "alt+ctrl+l",
+						"type": "string"
+					},
+					"string-converter.toUpperCase": {
+						"description": "Convert to upper case",
+						"default": "alt+ctrl+u",
+						"type": "string"
+					},
+					"string-converter.toSnakeCase": {
+						"description": "Convert to snake case",
+						"default": "alt+ctrl+s",
+						"type": "string"
+					}
+				}
 			}
 		]
 	},
@@ -33,11 +102,10 @@
 		"compile": "yarn build",
 		"prepack": "yarn build",
 		"build": "vite build",
-		"test": "vitest",
-		"dev": "vite"
+		"test": "vitest"
 	},
 	"devDependencies": {
-		"@types/node": "18.16.0",
+		"@types/node": "18.16.1",
 		"@types/vscode": "^1.77.0",
 		"@typescript-eslint/eslint-plugin": "^5.59.1",
 		"@typescript-eslint/parser": "^5.59.1",
@@ -45,7 +113,7 @@
 		"eslint": "^8.39.0",
 		"rome": "^12.0.0",
 		"typescript": "^5.0.4",
-		"vite": "^4.3.1",
+		"vite": "^4.3.3",
 		"vitest": "^0.30.1"
 	}
 }

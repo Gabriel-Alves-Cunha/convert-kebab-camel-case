@@ -4,8 +4,8 @@ import { defineConfig } from "vite";
 import { resolve } from "node:path";
 
 const external = builtinModules
-	.map(mod => `node:${mod}`)
-	.concat(builtinModules, "esbuild", "electron", "vite", "vscode");
+	.map((mod) => `node:${mod}`)
+	.concat(builtinModules, "vscode");
 
 const MINIFY = true;
 

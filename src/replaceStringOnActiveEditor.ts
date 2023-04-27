@@ -1,28 +1,19 @@
-import { window } from "vscode";
+import type { TextEditor, TextEditorEdit } from "vscode";
 
 export function replaceStringOnActiveEditor(
+	textEditor: TextEditor,
+	edit: TextEditorEdit,
 	replaceStringFunction: (selectedText: string) => string,
 ): void {
-	// Get the current active editor
-	const editor = window.activeTextEditor;
-
-	if (!editor) {
-		console.warn("No active editor");
-
-		return;
-	}
-
 	// Get the selection from the editor
-	const primarySelection = editor.selection;
+	const { selection } = textEditor;
 
 	// Get the text within the selection
-	const selectedText = editor.document.getText(primarySelection);
+	const selectedText = textEditor.document.getText(selection);
 
 	// Now you can perform an action on the selected text
 	const newString = replaceStringFunction(selectedText);
 
 	// Replace the selected text with the converted text
-	editor.edit((editBuilder) => {
-		editBuilder.replace(primarySelection, newString);
-	});
+	edit.replace(selection, newString);
 }

@@ -1,4 +1,5 @@
 import {
+	leadingAndTrailingHyphensOrUnderscoresRegex,
 	firstLetterOfAlmostAllAlphabetsRegex,
 	underscoreOrHiphenOrSpaceRegex,
 } from "./regexes";
@@ -6,25 +7,20 @@ import {
 export function toCamelCase(input: string): string {
 	if (!(input && underscoreOrHiphenOrSpaceRegex.test(input))) return input;
 
-	return input
+	const output = input
 		.toLocaleLowerCase()
-		.replace(underscoreOrHiphenOrSpaceRegex, toUpper);
+		.replace(underscoreOrHiphenOrSpaceRegex, toUpper)
+		.replace(leadingAndTrailingHyphensOrUnderscoresRegex, "");
+
+	return output;
 }
 
 function toUpper(_match: unknown, str: string): string {
 	return str.toLocaleUpperCase();
 }
 
-function toLower(_match: unknown, str: string): string {
-	return str.toLocaleLowerCase();
-}
-
 function matchToUpper(match: string): string {
 	return match.toLocaleUpperCase();
-}
-
-function matchToLower(match: string): string {
-	return match.toLocaleLowerCase();
 }
 
 export function capitalizeFirstLetter(input: string): string {

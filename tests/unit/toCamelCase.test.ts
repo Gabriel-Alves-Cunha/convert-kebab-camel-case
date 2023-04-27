@@ -88,4 +88,11 @@ describe("to camel case", () => {
 		const actualOutput = toCamelCase(input);
 		expect(actualOutput).toEqual(expectedOutput);
 	});
+
+	it("test string with underscore at the end", () => {
+		const input = "_hello_-world_";
+		const expected = "HelloWorld";
+
+		expect(toCamelCase(input)).toBe(expected);
+	});
 });

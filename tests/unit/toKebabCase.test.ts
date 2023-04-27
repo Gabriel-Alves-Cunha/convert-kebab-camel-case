@@ -67,5 +67,12 @@ describe("to kebab case", () => {
 		const input = "HELLO WORLD";
 		const expected = "hello-world";
 		expect(toKebabCase(input)).toBe(expected);
-	})
+	});
+
+	it("test with graphic accent", () => {
+		const input = "olá, como vai voçê?";
+		const expected = "olá-como-vai-voçê";
+
+		expect(toKebabCase(input)).toBe(expected);
+	});
 });

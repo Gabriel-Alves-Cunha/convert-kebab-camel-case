@@ -1,27 +1,18 @@
-// The module 'vscode' contains the VS Code extensibility API
 import { type ExtensionContext, commands } from "vscode";
 
-import { replaceStringOnActiveEditor } from "./replaceStringOnActiveEditor";
-import { camelToKebab } from "./camelToKebab";
-import { kebabToCamel } from "./toCamelCase";
-import { toSnakeCase } from "./toSnakeCase";
+import {
+	toPascalCaseCommand,
+	toCamelCaseCommand,
+	toKebabCaseCommand,
+	toLowerCaseCommand,
+	toSnakeCaseCommand,
+	toUpperCaseCommand,
+} from "./commands";
 
-const myExtension = "convert-kebab-camel-case";
+const myExtension = "string-converter";
 
-function camelToKebabCommand(): void {
-	replaceStringOnActiveEditor(camelToKebab);
-}
-
-function kebakToCamelCommand(): void {
-	replaceStringOnActiveEditor(kebabToCamel);
-}
-
-export function toSnakeCaseCommand(): void {
-	replaceStringOnActiveEditor(toSnakeCase);
-}
-
-// This method is called when your extension is activated
-// Your extension is activated the very first time the command is executed
+// This method is called when your extension is activated.
+// Your extension is activated the very first time the command is executed.
 export function activate(context: ExtensionContext): void {
 	// Use the console to output diagnostic information (console.log) and errors (console.error)
 	// This line of code will only be executed once when your extension is activated
@@ -36,21 +27,45 @@ export function activate(context: ExtensionContext): void {
 	// 		registerCommand('my-extension.sayHello', (name) => {
 	// 			console.log(`Hello ${name}!`);
 	// 		}
-	const disposeCamelToKebabCommand = commands.registerCommand(
-		`${myExtension}.camelToKebab`,
-		camelToKebabCommand
+	const disposeToKebabCaseCommand = commands.registerTextEditorCommand(
+		`${myExtension}.toKebabCase`,
+		toKebabCaseCommand,
 	);
 
-	const disposeKebakToCamelCommand = commands.registerCommand(
-		`${myExtension}.kebabToCamel`,
-		kebakToCamelCommand
+	const disposeToCamelCaseCommand = commands.registerTextEditorCommand(
+		`${myExtension}.toCamelCase`,
+		toCamelCaseCommand,
+	);
+
+	const disposeToSnakeCaseCommand = commands.registerTextEditorCommand(
+		`${myExtension}.toSnakeCase`,
+		toSnakeCaseCommand,
+	);
+
+	const disposeToPascalCaseCommand = commands.registerTextEditorCommand(
+		`${myExtension}.toPascalCase`,
+		toPascalCaseCommand,
+	);
+
+	const disposeToUpperCaseCommand = commands.registerTextEditorCommand(
+		`${myExtension}.toUpperCase`,
+		toUpperCaseCommand,
+	);
+
+	const disposeToLowerCaseCommand = commands.registerTextEditorCommand(
+		`${myExtension}.toLowerCase`,
+		toLowerCaseCommand,
 	);
 
 	context.subscriptions.push(
-		disposeCamelToKebabCommand,
-		disposeKebakToCamelCommand
+		disposeToPascalCaseCommand,
+		disposeToKebabCaseCommand,
+		disposeToCamelCaseCommand,
+		disposeToSnakeCaseCommand,
+		disposeToUpperCaseCommand,
+		disposeToLowerCaseCommand,
 	);
 }
 
-// This method is called when your extension is deactivated
+// This method is called when your extension is deactivated.
 export function deactivate(): void {}

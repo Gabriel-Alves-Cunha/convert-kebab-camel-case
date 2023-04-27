@@ -1,25 +1,38 @@
-# convert-kebab-camel-case
+# String Converter
 
-This is a bare-bones extension to convert camel case to kebab case and vice-versa.
+This is a bare-bones extension aimed to help you to convert a string to a few other cases.
+
+## Features
+
+|     | Case   | Shortcut     |
+| --- | ------ | ------------ |
+| 1   | Upper  | `alt+ctrl+u` |
+| 2   | Lower  | `alt+ctrl+l` |
+| 3   | Pascal | `alt+ctrl+p` |
+| 4   | Camel  | `alt+ctrl+c` |
+| 5   | Kebab  | `alt+ctrl+k` |
+| 6   | Snake  | `alt+ctrl+s` |
 
 ## Extension Settings
 
-Include if your extension adds any VS Code settings through the `contributes.configuration` extension point.
-
-For example:
-
 This extension contributes the following settings:
 
-* `convert-kebab-camel-case.enable`: Enable/disable this extension.
-* `convert-kebab-camel-case.thing`: Set to `blah` to do something.
+- `string-converter.toPascalCase`
+- `string-converter.toKebabCase`
+- `string-converter.toCamelCase`
+- `string-converter.toLowerCase`
+- `string-converter.toUpperCase`
+- `string-converter.toSnakeCase`
 
-## Release Notes
+You can use it to change their keyboard shortcut.
 
-Users appreciate release notes as you update your extension.
+<!-- ## Release Notes
+
+Users appreciate release notes as you update your extension. -->
 
 ### 0.0.1
 
-Initial release of convert-kebab-camel-case
+Initial release of string-converter.
 
 ---
 

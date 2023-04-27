@@ -1,5 +1,11 @@
 import { kebabOrCamelOrSnakeCaseRegex } from "./regexes";
 
-export function toSnakeCase(text: string): string {
-	return text.replaceAll(kebabOrCamelOrSnakeCaseRegex, "$1_$2").toLocaleLowerCase();
+export function toSnakeCase(input: string): string {
+	if (!input) return input;
+
+	const output = input
+		.replaceAll(kebabOrCamelOrSnakeCaseRegex, "$1_$2")
+		.toLocaleLowerCase();
+
+	return output;
 }
