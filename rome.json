@@ -15,6 +15,7 @@
 			}
 		}
 	},
+
 	"formatter": {
 		"ignore": [
 			"node_modules", "*-lock.json", "build", "tests/full", "out",

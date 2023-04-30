@@ -1,5 +1,7 @@
 export function toLowerCase(input: string): string {
 	if (!input) return input;
 
-	return input.toLocaleLowerCase();
+	const output = input.toLocaleLowerCase();
+
+	return output;
 }

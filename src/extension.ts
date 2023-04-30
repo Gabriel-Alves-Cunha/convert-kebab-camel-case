@@ -1,5 +1,6 @@
 import { type ExtensionContext, commands } from "vscode";
 
+import { myExtension } from "./utils";
 import {
 	toPascalCaseCommand,
 	toCamelCaseCommand,
@@ -8,8 +9,6 @@ import {
 	toSnakeCaseCommand,
 	toUpperCaseCommand,
 } from "./commands";
-
-const myExtension = "string-converter";
 
 // This method is called when your extension is activated.
 // Your extension is activated the very first time the command is executed.
@@ -29,32 +28,32 @@ export function activate(context: ExtensionContext): void {
 	// 		}
 	const disposeToKebabCaseCommand = commands.registerTextEditorCommand(
 		`${myExtension}.toKebabCase`,
-		toKebabCaseCommand,
+		toKebabCaseCommand
 	);
 
 	const disposeToCamelCaseCommand = commands.registerTextEditorCommand(
 		`${myExtension}.toCamelCase`,
-		toCamelCaseCommand,
+		toCamelCaseCommand
 	);
 
 	const disposeToSnakeCaseCommand = commands.registerTextEditorCommand(
 		`${myExtension}.toSnakeCase`,
-		toSnakeCaseCommand,
+		toSnakeCaseCommand
 	);
 
 	const disposeToPascalCaseCommand = commands.registerTextEditorCommand(
 		`${myExtension}.toPascalCase`,
-		toPascalCaseCommand,
+		toPascalCaseCommand
 	);
 
 	const disposeToUpperCaseCommand = commands.registerTextEditorCommand(
 		`${myExtension}.toUpperCase`,
-		toUpperCaseCommand,
+		toUpperCaseCommand
 	);
 
 	const disposeToLowerCaseCommand = commands.registerTextEditorCommand(
 		`${myExtension}.toLowerCase`,
-		toLowerCaseCommand,
+		toLowerCaseCommand
 	);
 
 	context.subscriptions.push(
@@ -63,7 +62,7 @@ export function activate(context: ExtensionContext): void {
 		disposeToCamelCaseCommand,
 		disposeToSnakeCaseCommand,
 		disposeToUpperCaseCommand,
-		disposeToLowerCaseCommand,
+		disposeToLowerCaseCommand
 	);
 }
 

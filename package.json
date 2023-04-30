@@ -1,56 +1,102 @@
 {
-	"name": "string-converter",
-	"description": "Convert kebab to camel case string and",
+	"name": "string-manipulator",
+	"description": "String utilities such as converting to kebab, camel, pascal case.",
+	"repository": "https://github.com/Gabriel-Alves-Cunha/string-manipulator.git",
 	"author": "Gabriel Alves Cunha <gabriel925486@outlook.com>",
-	"displayName": "String Converter",
+	"activationEvents": ["onStartupFinished"],
+	"displayName": "String Manipulator",
+	"categories": ["Formatters"],
+	"main": "./out/extension.js",
+	"publisher": "warp-speed",
 	"version": "0.0.1",
 	"type": "commonjs",
 	"license": "MIT",
 	"engines": {
 		"vscode": "^1.77.0"
 	},
-	"categories": ["Other"],
-	"activationEvents": [],
-	"main": "./out/extension.js",
 	"contributes": {
-		"commands": [
+		"keybindings": [
 			{
-				"command": "string-converter.toKebabCase",
+				"command": "string-manipulator.toKebabCase",
 				"title": "Convert string to kebab case",
 				"when": "editorTextFocus",
 				"key": "alt+ctrl+K",
 				"mac": "alt+cmd+K"
 			},
 			{
-				"command": "string-converter.toCamelCase",
+				"command": "string-manipulator.toCamelCase",
 				"title": "Convert string to camel case",
 				"when": "editorTextFocus",
 				"key": "alt+ctrl+C",
 				"mac": "alt+cmd+C"
 			},
 			{
-				"command": "string-converter.toPascalCase",
+				"command": "string-manipulator.toPascalCase",
 				"title": "Convert string to pascal case",
 				"when": "editorTextFocus",
 				"key": "alt+ctrl+P",
 				"mac": "alt+cmd+P"
 			},
 			{
-				"command": "string-converter.toLowerCase",
+				"command": "string-manipulator.toLowerCase",
 				"title": "Convert string to lower case",
 				"when": "editorTextFocus",
 				"key": "alt+ctrl+L",
 				"mac": "alt+cmd+L"
 			},
 			{
-				"command": "string-converter.toUpperCase",
+				"command": "string-manipulator.toUpperCase",
 				"title": "Convert string to upper case",
 				"when": "editorTextFocus",
 				"key": "alt+ctrl+U",
 				"mac": "alt+cmd+U"
 			},
 			{
-				"command": "string-converter.toSnakeCase",
+				"command": "string-manipulator.toSnakeCase",
+				"title": "Convert string to snake case",
+				"when": "editorTextFocus",
+				"key": "alt+ctrl+S",
+				"mac": "alt+cmd+S"
+			}
+		],
+		"commands": [
+			{
+				"command": "string-manipulator.toKebabCase",
+				"title": "Convert string to kebab case",
+				"when": "editorTextFocus",
+				"key": "alt+ctrl+K",
+				"mac": "alt+cmd+K"
+			},
+			{
+				"command": "string-manipulator.toCamelCase",
+				"title": "Convert string to camel case",
+				"when": "editorTextFocus",
+				"key": "alt+ctrl+C",
+				"mac": "alt+cmd+C"
+			},
+			{
+				"command": "string-manipulator.toPascalCase",
+				"title": "Convert string to pascal case",
+				"when": "editorTextFocus",
+				"key": "alt+ctrl+P",
+				"mac": "alt+cmd+P"
+			},
+			{
+				"command": "string-manipulator.toLowerCase",
+				"title": "Convert string to lower case",
+				"when": "editorTextFocus",
+				"key": "alt+ctrl+L",
+				"mac": "alt+cmd+L"
+			},
+			{
+				"command": "string-manipulator.toUpperCase",
+				"title": "Convert string to upper case",
+				"when": "editorTextFocus",
+				"key": "alt+ctrl+U",
+				"mac": "alt+cmd+U"
+			},
+			{
+				"command": "string-manipulator.toSnakeCase",
 				"title": "Convert string to snake case",
 				"when": "editorTextFocus",
 				"key": "alt+ctrl+S",
@@ -59,34 +105,34 @@
 		],
 		"configuration": [
 			{
-				"title": "String Converter",
+				"title": "String Manipulator",
 				"properties": {
-					"string-converter.toKebabCase": {
+					"string-manipulator.toKebabCase": {
 						"description": "Convert to kebab case",
 						"default": "alt+ctrl+k",
 						"type": "string"
 					},
-					"string-converter.toCamelCase": {
+					"string-manipulator.toCamelCase": {
 						"description": "Convert to camel case",
 						"default": "alt+ctrl+c",
 						"type": "string"
 					},
-					"string-converter.toPascalCase": {
+					"string-manipulator.toPascalCase": {
 						"description": "Convert to pascal case",
 						"default": "alt+ctrl+p",
 						"type": "string"
 					},
-					"string-converter.toLowerCase": {
+					"string-manipulator.toLowerCase": {
 						"description": "Convert to lower case",
 						"default": "alt+ctrl+l",
 						"type": "string"
 					},
-					"string-converter.toUpperCase": {
+					"string-manipulator.toUpperCase": {
 						"description": "Convert to upper case",
 						"default": "alt+ctrl+u",
 						"type": "string"
 					},
-					"string-converter.toSnakeCase": {
+					"string-manipulator.toSnakeCase": {
 						"description": "Convert to snake case",
 						"default": "alt+ctrl+s",
 						"type": "string"
@@ -97,15 +143,15 @@
 	},
 	"scripts": {
 		"lint": "rome check . && eslint src --ext ts && tsc",
-		"vscode:prepublish": "yarn build",
+		"vscode:prepublish": "bun run build",
 		"fmt": "rome format . --write",
-		"compile": "yarn build",
-		"prepack": "yarn build",
+		"compile": "bun run build",
+		"prepack": "bun run build",
 		"build": "vite build",
 		"test": "vitest"
 	},
 	"devDependencies": {
-		"@types/node": "18.16.1",
+		"@types/node": "18.16.3",
 		"@types/vscode": "^1.77.0",
 		"@typescript-eslint/eslint-plugin": "^5.59.1",
 		"@typescript-eslint/parser": "^5.59.1",

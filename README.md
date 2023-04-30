@@ -1,4 +1,4 @@
-# String Converter
+# String Manipulator
 
 This is a bare-bones extension aimed to help you to convert a string to a few other cases.
 
@@ -17,12 +17,12 @@ This is a bare-bones extension aimed to help you to convert a string to a few ot
 
 This extension contributes the following settings:
 
-- `string-converter.toPascalCase`
-- `string-converter.toKebabCase`
-- `string-converter.toCamelCase`
-- `string-converter.toLowerCase`
-- `string-converter.toUpperCase`
-- `string-converter.toSnakeCase`
+- `string-manipulator.toPascalCase`
+- `string-manipulator.toKebabCase`
+- `string-manipulator.toCamelCase`
+- `string-manipulator.toLowerCase`
+- `string-manipulator.toUpperCase`
+- `string-manipulator.toSnakeCase`
 
 You can use it to change their keyboard shortcut.
 
@@ -32,7 +32,7 @@ Users appreciate release notes as you update your extension. -->
 
 ### 0.0.1
 
-Initial release of string-converter.
+Initial release of string-manipulator.
 
 ---
 
