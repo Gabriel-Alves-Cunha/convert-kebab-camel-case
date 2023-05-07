@@ -3,13 +3,17 @@
 	"description": "String utilities such as converting to kebab, camel, pascal case.",
 	"repository": "https://github.com/Gabriel-Alves-Cunha/string-manipulator.git",
 	"author": "Gabriel Alves Cunha <gabriel925486@outlook.com>",
-	"activationEvents": ["onStartupFinished"],
+	"activationEvents": [
+		"onStartupFinished"
+	],
 	"displayName": "String Manipulator",
 	"icon": "./assets/sm-logo.png",
-	"categories": ["Formatters"],
+	"categories": [
+		"Formatters"
+	],
 	"main": "./out/extension.js",
 	"publisher": "warp-speed",
-	"version": "0.0.1",
+	"version": "0.1.0",
 	"type": "commonjs",
 	"license": "MIT",
 	"engines": {
