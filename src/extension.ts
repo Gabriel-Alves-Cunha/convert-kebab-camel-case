@@ -15,7 +15,7 @@ import {
 export function activate(context: ExtensionContext): void {
 	// Use the console to output diagnostic information (console.log) and errors (console.error)
 	// This line of code will only be executed once when your extension is activated
-	console.log(`"${myExtension}" is now active!`);
+	// console.log(`"${myExtension}" is now active!`);
 
 	// The command has been defined in the package.json file.
 	// Now provide the implementation of the command with registerCommand.
@@ -28,32 +28,32 @@ export function activate(context: ExtensionContext): void {
 	// 		}
 	const disposeToKebabCaseCommand = commands.registerTextEditorCommand(
 		`${myExtension}.toKebabCase`,
-		toKebabCaseCommand
+		toKebabCaseCommand,
 	);
 
 	const disposeToCamelCaseCommand = commands.registerTextEditorCommand(
 		`${myExtension}.toCamelCase`,
-		toCamelCaseCommand
+		toCamelCaseCommand,
 	);
 
 	const disposeToSnakeCaseCommand = commands.registerTextEditorCommand(
 		`${myExtension}.toSnakeCase`,
-		toSnakeCaseCommand
+		toSnakeCaseCommand,
 	);
 
 	const disposeToPascalCaseCommand = commands.registerTextEditorCommand(
 		`${myExtension}.toPascalCase`,
-		toPascalCaseCommand
+		toPascalCaseCommand,
 	);
 
 	const disposeToUpperCaseCommand = commands.registerTextEditorCommand(
 		`${myExtension}.toUpperCase`,
-		toUpperCaseCommand
+		toUpperCaseCommand,
 	);
 
 	const disposeToLowerCaseCommand = commands.registerTextEditorCommand(
 		`${myExtension}.toLowerCase`,
-		toLowerCaseCommand
+		toLowerCaseCommand,
 	);
 
 	context.subscriptions.push(
@@ -62,7 +62,7 @@ export function activate(context: ExtensionContext): void {
 		disposeToCamelCaseCommand,
 		disposeToSnakeCaseCommand,
 		disposeToUpperCaseCommand,
-		disposeToLowerCaseCommand
+		disposeToLowerCaseCommand,
 	);
 }
 

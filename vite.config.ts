@@ -50,6 +50,7 @@ export default defineConfig(() => {
 			minifyIdentifiers: MINIFY,
 			minifyWhitespace: MINIFY,
 			ignoreAnnotations: true,
+			sourcesContent: false,
 			minifySyntax: MINIFY,
 			treeShaking: true,
 			logLevel: "info",
