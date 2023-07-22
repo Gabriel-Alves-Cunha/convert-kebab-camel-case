@@ -1,7 +1,7 @@
 import { window } from "vscode";
 
 export function replaceStringOnActiveEditor(
-	stringReplacer: (selectedText: string) => string
+	stringReplacer: (selectedText: string) => string,
 ): void {
 	const { activeTextEditor } = window;
 
@@ -14,7 +14,7 @@ export function replaceStringOnActiveEditor(
 		edit,
 	} = activeTextEditor;
 
-	selections.forEach(selection => {
+	selections.forEach((selection) => {
 		// Get the text within the selection:
 		const selectedText = getText(selection);
 
@@ -22,6 +22,6 @@ export function replaceStringOnActiveEditor(
 		const newString = stringReplacer(selectedText);
 
 		// Replace the selected text with the converted text:
-		edit(editBuilder => editBuilder.replace(selection, newString));
+		edit((editBuilder) => editBuilder.replace(selection, newString));
 	});
 }
