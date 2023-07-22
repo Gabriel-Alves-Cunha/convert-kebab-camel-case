@@ -2,6 +2,7 @@ import { type ExtensionContext, commands } from "vscode";
 
 import { myExtension } from "./utils";
 import {
+	toAllCapsSnakeCaseCommand,
 	toPascalCaseCommand,
 	toCamelCaseCommand,
 	toKebabCaseCommand,
@@ -26,37 +27,43 @@ export function activate(context: ExtensionContext): void {
 	// 		registerCommand('my-extension.sayHello', (name) => {
 	// 			console.log(`Hello ${name}!`);
 	// 		}
-	const disposeToKebabCaseCommand = commands.registerTextEditorCommand(
+	const disposeToKebabCaseCommand = commands.registerCommand(
 		`${myExtension}.toKebabCase`,
 		toKebabCaseCommand,
 	);
 
-	const disposeToCamelCaseCommand = commands.registerTextEditorCommand(
+	const disposeToCamelCaseCommand = commands.registerCommand(
 		`${myExtension}.toCamelCase`,
 		toCamelCaseCommand,
 	);
 
-	const disposeToSnakeCaseCommand = commands.registerTextEditorCommand(
+	const disposeToSnakeCaseCommand = commands.registerCommand(
 		`${myExtension}.toSnakeCase`,
 		toSnakeCaseCommand,
 	);
 
-	const disposeToPascalCaseCommand = commands.registerTextEditorCommand(
+	const disposeToPascalCaseCommand = commands.registerCommand(
 		`${myExtension}.toPascalCase`,
 		toPascalCaseCommand,
 	);
 
-	const disposeToUpperCaseCommand = commands.registerTextEditorCommand(
+	const disposeToUpperCaseCommand = commands.registerCommand(
 		`${myExtension}.toUpperCase`,
 		toUpperCaseCommand,
 	);
 
-	const disposeToLowerCaseCommand = commands.registerTextEditorCommand(
+	const disposeToLowerCaseCommand = commands.registerCommand(
 		`${myExtension}.toLowerCase`,
 		toLowerCaseCommand,
 	);
 
+	const disposeToAllCapsSnakeCaseCommand = commands.registerCommand(
+		`${myExtension}.toAllCapsSnakeCase`,
+		toAllCapsSnakeCaseCommand,
+	);
+
 	context.subscriptions.push(
+		disposeToAllCapsSnakeCaseCommand,
 		disposeToPascalCaseCommand,
 		disposeToKebabCaseCommand,
 		disposeToCamelCaseCommand,

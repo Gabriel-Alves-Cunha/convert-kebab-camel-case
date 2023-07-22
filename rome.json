@@ -3,8 +3,14 @@
 		"enabled": true,
 
 		"ignore": [
-			"node_modules", "*-lock.json", "build", "tests/full", "out",
-			"settings.json", "launch.json", "tasks.json"
+			"node_modules",
+			"*-lock.json",
+			"build",
+			"tests/full",
+			"out",
+			"settings.json",
+			"launch.json",
+			"tasks.json"
 		],
 
 		"rules": {
@@ -18,8 +24,14 @@
 
 	"formatter": {
 		"ignore": [
-			"node_modules", "*-lock.json", "build", "tests/full", "out",
-			"settings.json", "launch.json", "tasks.json"
+			"node_modules",
+			"*-lock.json",
+			"build",
+			"tests/full",
+			"out",
+			"settings.json",
+			"launch.json",
+			"tasks.json"
 		]
 	}
 }
