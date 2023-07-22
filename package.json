@@ -13,7 +13,7 @@
 	],
 	"main": "./out/extension.js",
 	"publisher": "warp-speed",
-	"version": "0.1.2",
+	"version": "0.2.0",
 	"type": "commonjs",
 	"license": "MIT",
 	"engines": {
